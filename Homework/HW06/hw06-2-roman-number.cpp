@@ -27,7 +27,7 @@
 #include <string.h>
 
 const char* convertToRoman(int num) {
-    static char roman_num[100]; // เก็บผลลัพธ์ที่ได้ในรูปของสตริง
+    static char roman_num[100];
     int val[] = {
         1000, 900, 500, 400,
         100, 90, 50, 40,
@@ -40,10 +40,10 @@ const char* convertToRoman(int num) {
         "X", "IX", "V", "IV",
         "I"
     };
-    roman_num[0] = '\0'; // ล้างสตริงที่เก็บผลลัพธ์
+    roman_num[0] = '\0';
     int i = 0;
     while (num > 0) {
-        for (int j = 0; j < num / val[i]; j++) {
+        while (num >= val[i]) {
             strcat(roman_num, syb[i]);
             num -= val[i];
         }
@@ -63,8 +63,3 @@ int main() {
 
     return 0;
 }
-
-
-
-
-
